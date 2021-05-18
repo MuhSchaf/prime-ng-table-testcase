@@ -2,21 +2,16 @@
   <p-table [value]="dataSource">
     <ng-template pTemplate="header">
       <tr>
-        <th
-          *ngFor="let column of columnNames; index as columnIndex; last as isLast"
-        >
-          <ng-container
-            *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: column}"
-          ></ng-container>
+        <th *ngFor="let column of columnNames; index as columnIndex; last as isLast">
+          <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: column}"></ng-container>
         </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-row>
       <tr>
-        <td *ngFor="let column of columnNames; let matCellIndex = dataIndex">
-          <ng-container
-            *ngTemplateOutlet="templates[matCellIndex] context:{$implicit:column, cellContent:matCellIndex}"
-          ></ng-container>
+        <td *ngFor="let column of columnNames; index as matCellIndex">
+          <ng-container *ngTemplateOutlet="templates[matCellIndex] context:{$implicit:row}">
+          </ng-container>
         </td>
       </tr>
     </ng-template>
