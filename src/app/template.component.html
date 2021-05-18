@@ -1,0 +1,23 @@
+<th-table
+  [columnNames]="['eins', 'zwei']"
+  [headerTemplates]="[header1, header2]"
+  [templates]="[nameTemplate, nickNameTemplate]"
+  [dataSource]="dataSource"
+>
+  <ng-template #header1>
+    <p>Header1</p>
+  </ng-template>
+
+  <ng-template #header2>
+    <p>Header2</p>
+  </ng-template>
+
+  <ng-template #nameTemplate let-element>
+    <p>{{element.name}}</p>
+    <img [src]="element.imgSrc" />
+  </ng-template>
+
+  <ng-template #nickNameTemplate let-element>
+    <p>{{element.nickName}}</p>
+  </ng-template>
+</th-table>
