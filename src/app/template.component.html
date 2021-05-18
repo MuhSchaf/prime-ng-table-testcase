@@ -1,9 +1,5 @@
-<th-table
-  [columnNames]="['eins', 'zwei']"
-  [headerTemplates]="[header1, header2]"
-  [templates]="[nameTemplate, nickNameTemplate]"
-  [dataSource]="dataSource"
->
+<th-table [columnNames]="['eins', 'zwei']" [headerTemplates]="[header1, header2]"
+  [templates]="[nameTemplate, nickNameTemplate]" [dataSource]="dataSource">
   <ng-template #header1>
     <p>Header1</p>
   </ng-template>
