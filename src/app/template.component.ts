@@ -15,6 +15,7 @@ export class Person {
 export class TemplateComponent {
   dataSource: Person[] = [
     new Person('Alf', 'Gandalf', 'http://placekitten.com/200/300'),
-    new Person('Rotbarsch', 'Blaumarsch', 'http://placekitten.com/200/200')
+    new Person('Rotbarsch', 'Blaumarsch', 'http://placekitten.com/200/200'),
+    new Person('Marco', 'Buscha', 'https://www.placecage.com/200/300')
   ];
 }
