@@ -1,11 +1,21 @@
-import { Component, Input, TemplateRef } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  QueryList,
+  TemplateRef,
+  ViewChildren
+} from '@angular/core';
+import { SortableColumn, Table } from 'primeng/table';
 
 @Component({
   selector: 'th-table',
   templateUrl: './table.component.html'
 })
-export class TableComponent {
+export class TableComponent implements AfterViewInit {
+  @ViewChildren('columns') columns: QueryList<ElementRef>;
+
   @Input()
   columnNames: string[];
 
@@ -17,4 +27,6 @@ export class TableComponent {
 
   @Input()
   dataSource: any;
+
+  ngAfterViewInit(): void {}
 }
