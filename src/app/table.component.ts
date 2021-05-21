@@ -13,7 +13,8 @@ import { SortableColumn, Table } from 'primeng/table';
 
 @Component({
   selector: 'th-table',
-  templateUrl: './table.component.html'
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
 export class TableComponent implements AfterViewInit, OnInit {
   tableSelections: any[];
@@ -46,12 +47,14 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.useSorting) {
-      this.columns.forEach(column => {
-        const sortColumn = new SortableColumn(this.table);
-        sortColumn.field = column.field;
-      });
-    }
+    // if (this.useSorting) {
+    //   this.columns.forEach(column => {
+    //     const sortColumn = new SortableColumn(this.table);
+    //     sortColumn.field = column.field;
+    //     console.log('sortColumn', sortColumn);
+    //   });
+    //   console.log('table', this.table);
+    // }
   }
 
   onRowSelect(event: any): void {
