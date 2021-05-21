@@ -16,7 +16,7 @@ import { SortableColumn, Table } from 'primeng/table';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements AfterViewInit, OnInit {
+export class TableComponent implements OnInit {
   tableSelections: any[];
   tableSelection: any;
   columns: any[];
@@ -44,17 +44,6 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.columnNames.forEach(column => {
       this.columns.push({ field: column, header: column.toUpperCase() });
     });
-  }
-
-  ngAfterViewInit(): void {
-    // if (this.useSorting) {
-    //   this.columns.forEach(column => {
-    //     const sortColumn = new SortableColumn(this.table);
-    //     sortColumn.field = column.field;
-    //     console.log('sortColumn', sortColumn);
-    //   });
-    //   console.log('table', this.table);
-    // }
   }
 
   onRowSelect(event: any): void {

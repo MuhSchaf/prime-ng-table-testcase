@@ -2,19 +2,13 @@
   <p-table #table [columns]="columns" [value]="dataSource">
     <ng-template pTemplate="header" let-columnies>
       <tr>
-        <ng-container *ngIf="useSorting">
-          <th *ngFor="let col of columnies; index as columnIndex; last as isLast" [pSortableColumn]="col.field">
-            <div class="table-header">
-              <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: col}"></ng-container>
-              <p-sortIcon [field]="col.field"></p-sortIcon>
-            </div>
-          </th>
-        </ng-container>
-        <ng-container *ngIf="!useSorting">
-          <th *ngFor="let col of columnies; index as columnIndex; last as isLast">
+        <th *ngFor="let col of columnies; index as columnIndex; last as isLast"
+          [pSortableColumn]="useSorting ? col.field : null">
+          <div class="table-header">
             <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: col}"></ng-container>
-          </th>
-        </ng-container>
+            <p-sortIcon *ngIf="useSorting" [field]="col.field"></p-sortIcon>
+          </div>
+        </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
