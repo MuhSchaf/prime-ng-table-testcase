@@ -1,23 +1,17 @@
 <div>
-  <p-table [value]="dataSource">
-    <ng-template pTemplate="header">
+  <p-table #table [columns]="columns" [value]="dataSource">
+    <ng-template pTemplate="header" let-columnies>
       <tr>
-        <th
-          #columns
-          *ngFor="let column of columnNames; index as columnIndex; last as isLast"
-        >
-          <ng-container
-            *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: column}"
-          ></ng-container>
+        <th *ngFor="let col of columnies; index as columnIndex; last as isLast">
+          <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: col}"></ng-container>
+          <p-sortIcon *ngIf="useSorting" [field]="col.field"></p-sortIcon>
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-row>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
       <tr>
         <td *ngFor="let column of columnNames; index as matCellIndex">
-          <ng-container
-            *ngTemplateOutlet="templates[matCellIndex] context:{$implicit:row}"
-          >
+          <ng-container *ngTemplateOutlet="templates[matCellIndex] context:{$implicit:rowData}">
           </ng-container>
         </td>
       </tr>

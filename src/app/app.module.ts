@@ -8,9 +8,17 @@ import { HelloComponent } from './hello.component';
 import { TableModule } from 'primeng/table';
 import { TemplateComponent } from './template.component';
 import { TableComponent } from './table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, TableModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    TableModule,
+    ButtonModule,
+    BrowserAnimationsModule
+  ],
   declarations: [
     AppComponent,
     HelloComponent,

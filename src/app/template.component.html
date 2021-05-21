@@ -1,11 +1,11 @@
-<th-table [columnNames]="['eins', 'zwei']" [headerTemplates]="[header1, header2]"
-  [templates]="[nameTemplate, nickNameTemplate]" [dataSource]="dataSource">
+<th-table [columnNames]="columnNames" [headerTemplates]="[header1, header2]"
+  [templates]="[nameTemplate, nickNameTemplate]" [dataSource]="dataSource" [useSorting]="true">
   <ng-template #header1>
-    <p>Header1</p>
+    <p>Name mit Bild</p>
   </ng-template>
 
   <ng-template #header2>
-    <p>Header2</p>
+    <p>Nachname</p>
   </ng-template>
 
   <ng-template #nameTemplate let-element>
@@ -17,3 +17,21 @@
     <p>{{element.nickName}}</p>
   </ng-template>
 </th-table>
+
+<p-table [columns]="cols" [value]="dataSource">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
