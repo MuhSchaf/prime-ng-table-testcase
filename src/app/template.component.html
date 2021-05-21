@@ -1,5 +1,7 @@
+<button (click)="useSort()" >Sortierung nutzen</button>
+
 <th-table [columnNames]="columnNames" [headerTemplates]="[header1, header2]"
-  [templates]="[nameTemplate, nickNameTemplate]" [dataSource]="dataSource" [useSorting]="true">
+  [templates]="[nameTemplate, nickNameTemplate]" [dataSource]="dataSource" [useSorting]="useSorting">
   <ng-template #header1>
     <p>Name mit Bild</p>
   </ng-template>
@@ -18,6 +20,10 @@
   </ng-template>
 </th-table>
 
+<!-- <div>
+  <h3> Klassiche Prime-Ng-Tabelle </h3>
+</div>
+
 <p-table [columns]="cols" [value]="dataSource">
   <ng-template pTemplate="header" let-columns>
     <tr>
@@ -34,4 +40,4 @@
       </td>
     </tr>
   </ng-template>
-</p-table>
+</p-table> -->

@@ -15,6 +15,7 @@ export class Person {
 })
 export class TemplateComponent implements OnInit {
   columnNames = ['nick', 'nickName'];
+  useSorting = false;
   cols: any[];
   dataSource: Person[] = [
     new Person('Alf', 'Gandalf', 'http://placekitten.com/200/300'),
@@ -29,5 +30,9 @@ export class TemplateComponent implements OnInit {
       { field: 'imgSrc', header: 'Image' },
       { field: 'color', header: 'Color' }
     ];
+  }
+
+  useSort(): void {
+    this.useSorting = !this.useSorting;
   }
 }
