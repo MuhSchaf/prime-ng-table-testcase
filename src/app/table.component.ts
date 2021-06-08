@@ -1,15 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  QueryList,
-  TemplateRef,
-  ViewChild,
-  ViewChildren
-} from '@angular/core';
-import { SortableColumn, Table } from 'primeng/table';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'th-table',
@@ -20,9 +9,6 @@ export class TableComponent implements OnInit {
   tableSelections: any[];
   tableSelection: any;
   columns: any[];
-
-  // @ViewChildren('columns') columns: QueryList<ElementRef>;
-  @ViewChild('table') table: Table;
 
   @Input()
   columnNames: string[];
