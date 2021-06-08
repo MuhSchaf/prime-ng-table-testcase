@@ -1,14 +1,10 @@
 <div>
   <p-table #table [columns]="columns" [value]="dataSource" [resizableColumns]="true" styleClass="p-datatable-gridlines"
-    [columnResizeMode]="fit">
+    [columnResizeMode]="expand">
     <ng-template pTemplate="header" let-columnies>
       <tr>
-        <th *ngFor="let col of columnies; index as columnIndex; last as isLast" pResizableColumn
-          [pSortableColumn]="useSorting ? col.field : null">
-          <div class="table-header">
-            <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: col}"></ng-container>
-            <p-sortIcon *ngIf="useSorting" [field]="col.field"></p-sortIcon>
-          </div>
+        <th *ngFor="let col of columnies; index as columnIndex; last as isLast" pResizableColumn>
+          <ng-container *ngTemplateOutlet="headerTemplates[columnIndex] context:{$implicit: col}"></ng-container>
         </th>
       </tr>
     </ng-template>
