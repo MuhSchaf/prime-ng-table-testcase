@@ -1,5 +1,6 @@
 <div>
-  <p-table #table [columns]="columns" [value]="dataSource">
+  <p-table #table [columns]="columns" [value]="dataSource" [resizableColumns]="true" styleClass="p-datatable-gridlines"
+    [columnResizeMode]="fit">
     <ng-template pTemplate="header" let-columnies>
       <tr>
         <th *ngFor="let col of columnies; index as columnIndex; last as isLast"
